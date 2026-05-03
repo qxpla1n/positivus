@@ -22,7 +22,7 @@
 		border-radius: var(--border-radius-large);
 
 		&::after {
-			@include square(var(--reviewCardCornerWidth));
+			@include square(var(--review-card-corner-width));
 
 			content: '';
 			position: absolute;
