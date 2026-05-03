@@ -1,0 +1,146 @@
+@use '@/styles/helpers' as *;
+
+.header {
+	padding-block: fluid(60, 20, null, $tablet);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transition:
+		background-color var(--transition-duration),
+		padding-block var(--transition-duration),
+		box-shadow var(--transition-duration);
+	z-index: 2;
+
+	&--scroll {
+		padding-block: 20px;
+		background-color: var(--color-bg-header-scroll);
+		backdrop-filter: blur(5px);
+		box-shadow: var(--shadow-header);
+	}
+
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: var(--header-gap);
+	}
+
+	// .header__logo
+	&__logo {
+		width: fluid(220, 144, null, $tablet);
+		height: fluid(36, 24, null, $tablet);
+		z-index: 2;
+	}
+
+	// .header__menu
+	&__menu {
+		margin-left: auto;
+		font-size: fluid(18, 16, null, $tablet);
+
+		@include mobile {
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			top: 0;
+			left: 100%;
+			padding-top: calc(var(--header-height) + 30px);
+			padding-inline: $containerPaddingX;
+			padding-bottom: 30px;
+			background-color: var(--color-white);
+			transition: left var(--transition-duration);
+			overflow: auto;
+			&::before {
+				content: '';
+				width: 100%;
+				height: var(--header-height);
+				background-color: var(--color-white);
+				position: fixed;
+				top: 0;
+				left: 100%;
+				transition: left var(--transition-duration);
+				z-index: 2;
+			}
+			[data-menu-open] & {
+				left: 0;
+				&::before {
+					left: 0;
+					border-bottom: 1px solid rgb(0 0 0 / 10%);
+				}
+			}
+		}
+	}
+
+	// .header__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		column-gap: var(--header-gap);
+
+		@include mobile {
+			flex-direction: column;
+			align-items: flex-end;
+			row-gap: 15px;
+		}
+	}
+
+	// .header__link
+	&__link {
+		position: relative;
+		height: 48px;
+		display: inline-flex;
+		align-items: center;
+
+		@include hover {
+			&::after {
+				width: 100%;
+			}
+		}
+
+		@include mobile {
+			[data-menu-open] & {
+				font-size: 28px;
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 2px;
+			top: 85%;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: currentcolor;
+			transition-duration: inherit;
+		}
+	}
+
+	// .header__button
+	&__button {
+		z-index: 2;
+
+		@include tablet {
+			height: 48px;
+			padding-inline: 15px;
+			font-size: 16px;
+		}
+
+		@include mobile {
+			margin-left: auto;
+		}
+
+		@include mobile-s {
+			display: none;
+		}
+	}
+
+	&__burger {
+
+		[data-menu-open] & {
+			background-color: var(--color-accent);
+		}
+	}
+}

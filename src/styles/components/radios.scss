@@ -1,0 +1,11 @@
+.radios {
+	display: flex;
+	align-items: center;
+	column-gap: 35px;
+
+	// .radios__item
+	&__item {
+		cursor: pointer;
+		user-select: none;
+	}
+}

@@ -1,0 +1,12 @@
+@use '@/styles/helpers' as *;
+
+.base-card {
+	border: var(--border);
+	box-shadow: var(--shadow);
+	border-radius: var(--border-radius-large);
+	transition: transform var(--transition-duration);
+
+	@include hover(false) {
+		transform: translateY(-5px);
+	}
+}

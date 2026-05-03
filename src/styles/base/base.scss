@@ -1,0 +1,68 @@
+@use '@/styles/helpers' as *;
+
+html {
+	scroll-behavior: smooth;
+}
+
+html.is-lock {
+	overflow: hidden;
+}
+
+body {
+	font-family: var(--font-family);
+	font-size: fluid(18, 16);
+	font-weight: 400;
+	line-height: 1.28;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+}
+
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+}
+
+.content {
+	flex-grow: 1;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+	transition-duration: var(--transition-duration);
+}
+
+a,
+button {
+	-webkit-tap-highlight-color: transparent;
+}
+
+h1, .h1 {
+	font-size: fluid(60, 39);
+}
+h2, .h2 {
+	font-size: fluid(40, 30);
+}
+h3, .h3 {
+	font-size: fluid(30, 26);
+}
+h4, .h4 {
+	font-size: fluid(20, 18);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: 500;
+}
+
+:focus-visible {
+	@include focus-visible;
+}

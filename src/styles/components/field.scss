@@ -1,0 +1,78 @@
+@use '@/styles/helpers' as *;
+
+.field {
+	--field-input-height: var(--input-height);
+	--field-input-text-color: var(--color-dark);
+	--field-input-border-color: var(--color-dark);
+	--field-input-focus-border-color: var(--color-black);
+	--field-input-placeholder-color: var(--color-gray-alt);
+	--field-input-hover-bg-color: var(--color-accent);
+	--field-input-hover-border-color: var(--color-black);
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	row-gap: 5px;
+
+	@include mobile {
+		row-gap: 10px;
+	}
+
+	&--big-height {
+		--field-input-height: var(--button-height);
+	}
+
+	&--dark-bg {
+		--field-input-text-color: var(--color-accent);
+		--field-input-bg-color: var(--color-dark);
+		--field-input-border-color: var(--color-white);
+		--field-input-placeholder-color: var(--color-white);
+		--field-input-hover-bg-color: var(--color-dark);
+		--field-input-focus-border-color: var(--color-accent);
+		--field-input-hover-border-color: var(--color-accent);
+	}
+
+	// .field__label
+	&__label {
+		font-size: 16px;
+	}
+
+	// .field__input
+	&__input {
+		width: 100%;
+		height: var(--field-input-height);
+		padding-inline: fluid(30, 20);
+		color: var(--field-input-text-color);
+		border: 1px solid var(--field-input-border-color);
+		border-radius: var(--border-radius);
+		transition:
+			background-color var(--transition-duration),
+			border-color var(--transition-duration);
+
+		@include hover {
+			background-color: var(--field-input-hover-bg-color);
+			border-color: var(--field-input-hover-border-color);
+		}
+
+		&:focus {
+			background-color: var(--field-input-hover-bg-color);
+			border-color: var(--field-input-focus-border-color);
+			outline: none;
+		}
+
+		&::placeholder {
+			color: var(--field-input-placeholder-color);
+		}
+	}
+
+	// .field__input--textarea
+	&__input--textarea {
+		height: 190px;
+		padding-block: 18px;
+		resize: none;
+
+		@include mobile {
+			height: 130px;
+		}
+	}
+}

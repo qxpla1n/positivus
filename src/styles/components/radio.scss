@@ -1,0 +1,55 @@
+@use '@/styles/helpers' as *;
+
+.radio {
+	display: flex;
+	align-items: center;
+	column-gap: 15px;
+
+	@include hover {
+		.radio__input:not(:checked) + .radio__emulator {
+			border-color: var(--color-accent);
+		}
+
+		.radio__input:not(:checked) ~ .radio__label {
+			opacity: 0.7;
+		}
+	}
+
+	// .radio__emulator
+	&__emulator {
+		@include flex-center;
+		@include square(28px);
+
+		position: relative;
+		background-color: var(--color-white);
+		border: var(--border);
+		border-radius: 50%;
+
+		transition:
+			opacity var(--transition-duration),
+			border-color var(--transition-duration);
+
+		&::after {
+			@include abs-center;
+			@include square(60%);
+
+			content: '';
+			position: absolute;
+			background-color: var(--color-accent);
+			border-radius: inherit;
+			transition: opacity var(--transition-duration);
+		}
+	}
+
+	// .radio__input
+	&__input {
+		&:not(:checked) + .radio__emulator::after {
+			opacity: 0;
+		}
+	}
+
+	// .radio__label
+	&__label {
+		transition: opacity var(--transition-duration);
+	}
+}

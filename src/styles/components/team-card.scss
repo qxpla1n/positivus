@@ -1,0 +1,83 @@
+@use '@/styles/helpers' as *;
+
+.team-card {
+	height: 100%;
+	padding-inline: fluid(35, 30, null, $mobile);
+	padding-block: 40px;
+
+	@include tablet-above {
+		@include hover {
+			.team-card__link {
+				opacity: 1;
+				top: 0;
+			}
+		}
+	}
+
+	// .team-card__header
+	&__header {
+		position: relative;
+		display: flex;
+		column-gap: fluid(20, 15);
+	}
+
+	// .team-card__image
+	&__image {
+		@include square(fluid(102, 80));
+		object-fit: cover;
+	}
+
+	// .team-card__info
+	&__info {
+		display: flex;
+		flex-direction: column;
+		row-gap: 3px;
+		margin-top: auto;
+	}
+
+	// .team-card__link
+	&__link {
+		@include flex-center;
+		@include square(34px);
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin-left: auto;
+		align-self: start;
+		background-color: var(--color-black);
+		border-radius: 50%;
+		transition:
+			color var(--transition-duration),
+			background-color var(--transition-duration);
+
+		@include tablet-above {
+			top: -20px;
+			opacity: 0;
+			transition:
+				top var(--transition-duration),
+				opacity var(--transition-duration);
+		}
+
+		@include hover {
+			background-color: var(--color-accent);
+
+			.team-card__icon {
+				color: var(--color-black);
+			}
+		}
+	}
+
+	// .team-card__icon
+	&__icon {
+		@include square(17px);
+		color: var(--color-accent);
+	}
+
+	// .team-card__body
+	&__body {
+		padding-top: fluid(28, 20);
+		margin-top: fluid(28, 20);
+		border-top: var(--border);
+	}
+}

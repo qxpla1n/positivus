@@ -1,0 +1,15 @@
+@use '@/styles/helpers' as *;
+
+.services {
+	// .services__list
+	&__list {
+		// display: grid;
+		// grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+		// column-gap: 40px;
+		// row-gap: fluid(40, 30);
+
+		&:not(:last-child) {
+			margin-bottom: fluid(100, 40);
+		}
+	}
+}

@@ -1,0 +1,35 @@
+@use '@/styles/helpers' as *;
+
+.soc1als {
+	// .soc1als__list
+	&__list {
+		display: flex;
+		align-items: center;
+		column-gap: 20px;
+	}
+
+	// .soc1als__item
+	&__item {
+		line-height: 0;
+	}
+
+	// .soc1als__link
+	&__link {
+		@include flex-center(true);
+		@include square(30px);
+
+		background-color: var(--color-white);
+		border-radius: 50%;
+
+		@include hover {
+			background-color: var(--color-accent);
+		}
+	}
+
+	// .soc1als__icon
+	&__icon {
+		width: 50%;
+		height: 50%;
+		color: var(--color-black);
+	}
+}

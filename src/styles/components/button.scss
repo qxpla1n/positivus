@@ -1,0 +1,39 @@
+@use '@/styles/helpers' as *;
+
+.button {
+	@include flex-center(true);
+
+	height: var(--button-height);
+	padding-inline: fluid(35, 15);
+	font-size: fluid(20, 18);
+	color: var(--color-white);
+	background-color: var(--color-dark);
+	border: var(--border);
+	border-radius: var(--border-radius);
+
+	@include mobile-s {
+		width: 100%;
+	}
+
+	@include hover {
+		color: var(--color-dark);
+		background-color: var(--color-accent);
+	}
+
+	&--transparent {
+		color: var(--color-dark);
+		background-color: transparent;
+	}
+
+	&--accent {
+		color: var(--color-black);
+		background-color: var(--color-accent);
+		border: 1px solid transparent;
+
+		@include hover {
+			color: var(--color-accent);
+			background-color: var(--color-dark);
+			border-color: var(--color-accent);
+		}
+	}
+}

@@ -1,0 +1,48 @@
+@use 'media' as *;
+@use 'functions' as *;
+
+:root {
+	// Colors
+	--color-text: #191a23;
+	--color-bg: #fff;
+	--color-black: #000;
+	--color-white: #fff;
+	--color-accent: #b9ff66;
+	--color-grey: #f3f3f3;
+	--color-gray-alt: #898989;
+	--color-dark: #191a23;
+	--color-dark-alt: #292a32;
+	--color-bg-header-scroll: rgb(255 255 255 / 80%);
+
+	// Fonts
+	--font-family: 'Space Grotesk', sans-serif;
+
+	// Header height
+	--header-height: 68px;
+
+	// Section padding
+	--section-padding-y: #{fluid(70, 30)};
+
+	// Heights
+	--input-height: 59px;
+	--button-height: #{fluid(68, 58)};
+
+	// Border
+	--border: 1px solid var(--color-dark-alt);
+
+	// Border radius
+	--border-radius: 14px;
+	--border-radius-small: 7px;
+	--border-radius-large: 45px;
+
+	// Gap
+	--header-gap: #{fluid(40, 15, null, $tablet)};
+
+	// Shadow
+	--shadow: 0 5px 0 0 var(--color-dark);
+	--shadow-accent: 0 5px 0 0 rgb(185 255 102);
+	--shadow-header: 0 2px 8px 0 rgb(0 0 0 / 30%);
+
+	// Transition
+	--transition-duration: 0.3s;
+}

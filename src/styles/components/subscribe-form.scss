@@ -1,0 +1,21 @@
+@use '@/styles/helpers' as *;
+
+.subscribe-form {
+	padding-inline: fluid(40, 30, null, $desktop);
+	padding-block: fluid(58, 30, null, $desktop);
+	display: flex;
+	gap: 20px;
+
+	border-radius: var(--border-radius);
+	background-color: var(--color-dark-alt);
+
+	@include desktop {
+		flex-direction: column;
+		width: 100%;
+		max-width: 450px;
+	}
+
+	@include mobile {
+		max-width: none;
+	}
+}

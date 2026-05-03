@@ -1,0 +1,50 @@
+@use '@/styles/helpers' as *;
+
+.contact-us {
+	position: relative;
+	padding-inline: fluid(100, 30);
+	padding-top: fluid(60, 40);
+	padding-bottom: fluid(80, 50);
+	background-color: var(--color-grey);
+	border-radius: var(--border-radius-large);
+	overflow-x: hidden;
+
+	&::after {
+		// --contactUsImageOffsetY: 62px;
+		@include square(650px);
+
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 98.5%;
+		translate: -50% -50%;
+
+		// height: calc(100% - var(--contactUsImageOffsetY) * 2);
+		aspect-ratio: 1;
+		background: url('./../../assets/images/contact-us/contact-us-bg.svg') center/contain no-repeat;
+
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&__form,
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .contact-us__form
+	&__form {
+		row-gap: fluid(40, 30);
+
+		@include tablet-above {
+			max-width: 556px;
+		}
+	}
+
+	// .contact-us__body
+	&__body {
+		row-gap: fluid(25, 20);
+	}
+}

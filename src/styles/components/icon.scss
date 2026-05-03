@@ -1,0 +1,10 @@
+@use '@/styles/helpers' as *;
+
+.icon {
+	@include square(20px);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	fill: currentcolor;
+}

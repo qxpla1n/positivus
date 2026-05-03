@@ -1,0 +1,51 @@
+@use '@/styles/helpers' as *;
+
+.testimonial-card {
+	$reviewCardCornerOffsetLeft: 52;
+
+	--review-card-corner-width: 40px;
+	--review-card-corner-offset-left: #{$reviewCardCornerOffsetLeft}px;
+
+	display: flex;
+	flex-direction: column;
+	row-gap: fluid(48, 44);
+
+	// max-width: fluid(606, 320);
+
+	// .testimonial-card__body
+	&__body {
+		position: relative;
+		padding-inline: fluid($reviewCardCornerOffsetLeft, 30);
+		padding-top: fluid(48, 30);
+		padding-bottom: fluid(52, 30);
+		border: 1px solid var(--color-accent);
+		border-radius: var(--border-radius-large);
+
+		&::after {
+			@include square(var(--reviewCardCornerWidth));
+
+			content: '';
+			position: absolute;
+			top: 100%;
+			left: var(--review-card-corner-offset-left);
+			translate: 0 -50%;
+			background-color: var(--color-dark);
+			border: inherit;
+			rotate: 45deg;
+			clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+		}
+	}
+
+	// .testimonial-card__footer
+	&__footer {
+		display: flex;
+		flex-direction: column;
+		padding-left: calc(var(--review-card-corner-offset-left) + var(--review-card-corner-width) / 2);
+	}
+
+	// .testimonial-card__name
+	&__name {
+		font-weight: 500;
+		color: var(--color-accent);
+	}
+}

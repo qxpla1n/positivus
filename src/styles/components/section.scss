@@ -1,0 +1,30 @@
+@use '@/styles/helpers' as *;
+
+.section {
+	padding-block: var(--section-padding-y);
+
+	// .section__header
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 30px 40px;
+
+		@include mobile {
+			flex-direction: column;
+			align-items: start;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: fluid(80, 30, null, $mobile);
+		}
+	}
+
+	// .section__description
+	&__description {
+		max-width: 580px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 15px;
+	}
+}

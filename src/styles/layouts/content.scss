@@ -1,0 +1,13 @@
+@use '@/styles/helpers' as *;
+
+.content {
+	// Первый блок в main компенсирует fixed header
+	> :first-child {
+		padding-top: fluid(200, 95, null, $mobile-s);
+
+		// Если это section, отмена его дефолтного padding-top
+		&.section {
+			padding-bottom: var(--section-padding-y);
+		}
+	}
+}

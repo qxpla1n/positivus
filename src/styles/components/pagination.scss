@@ -1,0 +1,29 @@
+@use '@/styles/helpers' as *;
+
+.pagination {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+
+	// .pagination__button
+	&__button {
+		@include flex-center;
+		@include square(24px);
+
+		color: var(--color-white);
+		transition-property: color;
+
+		@include hover {
+			color: var(--color-accent);
+		}
+
+		&.is-current {
+			color: (var(--color-accent));
+		}
+	}
+
+	// .pagination__icon
+	&__icon {
+		@include square(14px);
+	}
+}

@@ -1,0 +1,98 @@
+@use '@/styles/helpers' as *;
+
+.process {
+	// .process__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: fluid(30, 20, null, $mobile);
+		counter-reset: custom-counter;
+	}
+
+	// .process__item
+	&__item {
+		counter-increment: custom-counter;
+	}
+
+	// .process__accordion
+	&__accordion {
+		--indicator-vertical-rotate: 90deg;
+
+		padding-inline: fluid(60, 30, null, $mobile);
+		padding-block: fluid(40, 30, null, $mobile);
+		background-color: var(--color-grey);
+		border: var(--border);
+		border-radius: var(--border-radius-large);
+		box-shadow: var(--shadow);
+		transition: background-color var(--transition-duration);
+
+		@include hover {
+			background-color: var(--color-accent);
+		}
+
+		&[open] {
+			--indicator-vertical-rotate: 0deg;
+
+			background-color: var(--color-accent);
+		}
+	}
+
+	// .process__accordion-header
+	&__accordion-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: fluid(30, 28, null, $mobile);
+		cursor: pointer;
+		user-select: none;
+	}
+
+	// .process__accordion-title
+	&__accordion-title {
+		display: flex;
+		align-items: center;
+		column-gap: 25px;
+		font-size: fluid(30, 18, null, $mobile);
+
+		&::before {
+			content: counter(custom-counter, decimal-leading-zero);
+			font-size: fluid(60, 30, null, $mobile);
+		}
+	}
+
+	// .process__accordion-indicator
+	&__accordion-indicator {
+		@include flex-center;
+		@include square(58px);
+		@include square(fluid(58, 30, null, $mobile));
+
+		position: relative;
+		flex-shrink: 0;
+		background-color: var(--color-grey);
+		border: var(--border);
+		border-radius: 50%;
+
+		&::before,
+		&::after {
+			@include abs-center;
+
+			content: '';
+			position: absolute;
+			width: 45%;
+			height: 10%;
+			background-color: var(--color-dark);
+		}
+
+		&::after {
+			rotate: var(--indicator-vertical-rotate);
+			transition: rotate var(--transition-duration);
+		}
+	}
+
+	// .process__accordion-body
+	&__accordion-body {
+		margin-top: fluid(30, 15, null, $mobile);
+		padding-top: fluid(30, 15, null, $mobile);
+		border-top: var(--border);
+	}
+}
