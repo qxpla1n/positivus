@@ -29,7 +29,7 @@ export function initTestimonialsSlider() {
           <button class="${className}" type="button">
            <span class="visually-hidden">Slide ${index + 1}</span>
             <svg class="pagination__icon icon" aria-hidden="true">
-              <use href="/positivus/__spritemap#icon-star-pagination"></use>
+              <use href="/__spritemap#icon-star-pagination"></use>
             </svg>
           </button> 
         `

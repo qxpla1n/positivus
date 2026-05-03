@@ -18,11 +18,6 @@ export default defineConfig({
 	plugins: [
 		VitePluginSvgSpritemap('src/assets/icons/sprites/**/*.svg', {
 			prefix: 'icon-',
-			route: '/positivus/__spritemap',
-
-			output: {
-				filename: '__spritemap.svg',
-			},
 
 			svgo: {
 				plugins: [
